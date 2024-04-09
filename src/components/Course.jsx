@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion";
 
 function Course({ course }) {
   const navigate = useNavigate();
@@ -42,13 +43,14 @@ function Course({ course }) {
   };
 
   return (
-    <div
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      className="cursor-pointer flex gap-y-2  py-3 rounded-md px-2 flex-col items-center w-[300px] min-h-[200px] bg-gray-200 transition-all duration-200"
       onClick={() => {
         navigate(
           `/${course.id}?githuburl=${course.githuburl}?coursename=${course.title}`
         );
       }}
-      className=" cursor-pointer flex gap-y-2  py-3 rounded-md px-2 flex-col items-center w-[300px] min-h-[200px] bg-gray-200 hover:scale-[1.02] transition-all duration-200"
     >
       <img
         className="w-[250px] h-[250px] rounded-md"
@@ -59,7 +61,7 @@ function Course({ course }) {
         <p className=" font-bold text-2xl">{course.title}</p>
         <p className=" px-4 text-justify">{course.description}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

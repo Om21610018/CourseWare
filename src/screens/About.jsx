@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Image, Form, Button } from "react-bootstrap";
 // import aboutImage from '../assets/about-image.jpg';
-
+import {motion} from "framer-motion"
 function About() {
   const [formData, setFormData] = useState({
     name: "",
@@ -30,12 +30,22 @@ function About() {
   };
 
   return (
-    <div className="py-5">
+    <motion.div initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }} className="py-5">
       <Container>
         <Row className="justify-content-center">
           <Col md={8}>
             <h2 className="text-center text-3xl font-bold mb-4">About Us</h2>
-            <Image src={"https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} alt="About MultiCore" fluid className="mb-4" />
+            <Image
+              src={
+                "https://images.pexels.com/photos/3861972/pexels-photo-3861972.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              }
+              alt="About MultiCore"
+              fluid
+              className="mb-4"
+            />
             <p>
               MultiCore is a cutting-edge platform that revolutionizes the way
               students learn and instructors teach. Our goal is to provide a
@@ -121,7 +131,7 @@ function About() {
           </Col>
         </Row>
       </Container>
-    </div>
+    </motion.div>
   );
 }
 

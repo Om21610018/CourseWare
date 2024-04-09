@@ -22,13 +22,15 @@ const App = () => {
   useIsHomePage();
 
   return (
-    <>
+    < >
+      <div className=" bg-gray-100">
       <Header />
       <ToastContainer />
-      <div className="w-10/12 mx-auto">
+      <div className="w-10/12 mx-auto bg-gray-100">
         <Outlet />
       </div>
       {isHomePage && <Footer />}
+      </div>
     </>
   );
 };
